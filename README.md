@@ -18,6 +18,7 @@
 - React Router v6
 - Material-UI (MUI)
 - Chart.js
+- Docker
 
 ## 项目结构
 
@@ -41,13 +42,15 @@ src/
 
 ## 开始使用
 
-### 安装依赖
+### 方法一：本地开发
+
+#### 安装依赖
 
 ```bash
 npm install
 ```
 
-### 启动开发服务器
+#### 启动开发服务器
 
 ```bash
 npm start
@@ -55,10 +58,59 @@ npm start
 
 应用将在 [http://localhost:3000](http://localhost:3000) 运行。
 
-### 构建生产版本
+#### 构建生产版本
 
 ```bash
 npm run build
+```
+
+### 方法二：使用Docker
+
+#### 从Docker Hub拉取镜像
+
+```bash
+docker pull your-dockerhub-username/bug-detection-system:latest
+```
+
+#### 运行容器
+
+```bash
+docker run -d -p 3000:3000 your-dockerhub-username/bug-detection-system:latest
+```
+
+应用将在 [http://localhost:3000](http://localhost:3000) 运行。
+
+#### 使用Docker Compose
+
+```bash
+# 设置Docker Hub用户名
+export DOCKER_HUB_USERNAME=your-dockerhub-username
+
+# 启动服务
+docker-compose up -d
+```
+
+### 方法三：自行构建Docker镜像
+
+#### 构建镜像
+
+```bash
+docker build -t bug-detection-system .
+```
+
+#### 运行容器
+
+```bash
+docker run -d -p 3000:3000 bug-detection-system
+```
+
+## 部署到Docker Hub
+
+1. 编辑`docker-build-push.sh`脚本，将`your-dockerhub-username`替换为您的Docker Hub用户名
+2. 运行脚本：
+
+```bash
+./docker-build-push.sh
 ```
 
 ## 使用流程

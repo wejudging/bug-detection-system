@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  bug-detection-system:
+    image: ${DOCKER_HUB_USERNAME}/bug-detection-system:latest
+    # 如果要从本地构建，取消下面这行的注释
+    # build: .
+    ports:
+      - "3000:3000"
+    restart: unless-stopped 
