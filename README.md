@@ -1,46 +1,76 @@
-# Getting Started with Create React App
+# 自适应重复缺陷报告检测系统
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+这是一个基于React的自适应重复缺陷报告检测系统前端界面。系统能够基于缺陷库规模动态选择合适的检测算法，有效识别重复的缺陷报告。
 
-## Available Scripts
+## 功能特点
 
-In the project directory, you can run:
+- **自适应算法选择**：根据缺陷库规模自动选择最合适的检测算法
+  - 大规模缺陷库：使用MFLLM（多模态融合大语言模型）算法
+  - 小规模缺陷库：使用DLLM（轻量级大语言模型）算法
+- **缺陷报告管理**：浏览、查看和管理系统中的缺陷报告
+- **重复检测**：检测缺陷报告之间的相似度，识别潜在的重复报告
+- **统计分析**：查看缺陷报告的统计数据和分析图表
 
-### `npm start`
+## 技术栈
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- React 18
+- TypeScript
+- React Router v6
+- Material-UI (MUI)
+- Chart.js
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## 项目结构
 
-### `npm test`
+```
+src/
+├── components/        # 可复用组件
+├── pages/             # 页面组件
+├── data/              # 模拟数据
+├── types/             # TypeScript类型定义
+└── utils/             # 工具函数
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 主要页面
 
-### `npm run build`
+1. **首页**：系统概述和功能导航
+2. **缺陷报告列表**：查看和筛选所有缺陷报告
+3. **报告详情**：查看单个缺陷报告的详细信息
+4. **重复检测**：使用自适应算法检测重复报告
+5. **算法详情**：了解系统使用的检测算法
+6. **统计分析**：查看缺陷报告的统计数据和图表
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 开始使用
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 安装依赖
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+npm install
+```
 
-### `npm run eject`
+### 启动开发服务器
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```bash
+npm start
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+应用将在 [http://localhost:3000](http://localhost:3000) 运行。
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### 构建生产版本
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```bash
+npm run build
+```
 
-## Learn More
+## 使用流程
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1. 浏览缺陷报告列表
+2. 查看报告详情
+3. 选择一个报告进行重复检测
+4. 系统会根据缺陷库规模自动选择合适的算法
+5. 查看检测结果，识别潜在的重复报告
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 注意事项
+
+- 本项目仅包含前端界面，使用模拟数据进行演示
+- 实际部署时，需要连接后端API获取真实数据
+- 系统中的算法选择逻辑可根据实际需求进行调整
